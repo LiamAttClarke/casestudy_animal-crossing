@@ -5,10 +5,10 @@
 		_Radius ("Radius", Float) = 10.0
 	}
 	SubShader {
-		Tags { "RenderType"="Opaque" }
-		
+		Tags { "RenderType"="Transparent" }
 		Pass {
 			Tags { "LightMode" = "ForwardBase" }
+			Blend SrcAlpha OneMinusSrcAlpha
 			
 			CGPROGRAM
 		
@@ -22,7 +22,6 @@
 			
 			// User Defined Properties
 			uniform fixed4 _Color;
-			uniform fixed4 _LightColor0;
 			uniform sampler2D _MainTex;
 			uniform float4 _MainTex_ST;
 			uniform float _Radius;		
@@ -68,7 +67,7 @@
 				
 				// Set FS_MAIN input struct
 				output.pos = mul(UNITY_MATRIX_MVP, mul (_World2Object, vertex));
-				output.col = fixed4(_Color.rgb, 1.0);
+				output.col = _Color;
 				output.uv = TRANSFORM_TEX(input.texcoord, _MainTex);
 				
 				return output;

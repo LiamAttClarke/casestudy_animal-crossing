@@ -16,15 +16,19 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		rigidBody.velocity =  new Vector3(Input.GetAxis("Horizontal") * moveSpeed,
+		// Movement
+		rigidBody.velocity =  new Vector3(Input.GetAxis("Stick 1 Horizontal") * moveSpeed,
 										  rigidBody.velocity.y, 
-										  Input.GetAxis("Vertical") * moveSpeed);
-		if(Input.GetButtonDown("Jump") && isGrounded) {
-			rigidBody.AddForce(Vector3.up * jumpPower);
-		}
-		Vector3 viewDir = ViewDirection();
+										  Input.GetAxis("Stick 1 Vertical") * moveSpeed);
+		// View Diretion 
+		Vector3 viewDir = new Vector3(Input.GetAxis("Stick 2 Horizontal"), 0, Input.GetAxis("Stick 2 Vertical")).normalized;
 		laserBeam.SetPosition(0, transform.position);
 		laserBeam.SetPosition(1, transform.position + viewDir * laserBeamLength);
+		
+		// Jumping
+		if(Input.GetButtonDown("Button A") && isGrounded) {
+			rigidBody.AddForce(Vector3.up * jumpPower);
+		}
 	}
 	void OnTriggerStay(Collider other) {
 		if(other.tag == "Ground") {
@@ -36,11 +40,5 @@ public class Player : MonoBehaviour {
 		if(other.tag == "Ground") {
 			isGrounded = false;
 		}
-	}
-	
-	Vector3 ViewDirection() {
-		Vector3 viewPortPos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-		Vector3 viewDir = new Vector3(viewPortPos.x * 2f - 1f, 0, viewPortPos.y * 2f - 1f).normalized; // convert [0,1] viewport coords to [-1,1] 
-		return viewDir;
 	}
 }
