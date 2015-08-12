@@ -810,7 +810,6 @@ GameObject:
   - 65: {fileID: 1155620893}
   - 54: {fileID: 1155620897}
   - 114: {fileID: 1155620896}
-  - 120: {fileID: 1155620899}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -884,9 +883,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceae9f38d33b24ec3868be4774a38320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 6
   jumpPower: 200
-  laserBeamLength: 2
+  loadOut: {fileID: 139518, guid: c066ac947a49a4dbeb009bc25036c237, type: 2}
   isGrounded: 1
 --- !u!54 &1155620897
 Rigidbody:
@@ -916,43 +915,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!120 &1155620899
-LineRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1155620891}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 1e724f0b5722a8948b1bb30056e52b75, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
-  m_Parameters:
-    startWidth: .100000001
-    endWidth: .100000001
-    m_StartColor:
-      serializedVersion: 2
-      rgba: 4294967295
-    m_EndColor:
-      serializedVersion: 2
-      rgba: 4294967295
-  m_UseWorldSpace: 1
 --- !u!1 &1313665306
 GameObject:
   m_ObjectHideFlags: 0
