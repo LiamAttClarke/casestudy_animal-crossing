@@ -1,2 +1,10 @@
-# Cylindrical World Shader
-Morphs objects around a cylinder.
+# Case Study: Animal Crossing Cyclindrical World Shader
+
+This project was created to explore how to visually wrap a flat world around a cylinder using Vertex Shaders in Unity.
+
+Reference: Animal Crossing
+
+![Animal Crossing Screenshot](./Screenshots/animal-crossing.jpg)
+
+Result:
+![](./Screenshots/screenshot.png)
